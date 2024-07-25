@@ -3,7 +3,7 @@
      
      <div class="product-card">
           <section class="product-thumbnail-container">
-               <img :src="`/src${product.categoryImage.desktop}`" alt="product-image">
+               <img :src="`${product.categoryImage.desktop}`" alt="product-image">
           </section>
 
           <section class="product-overview-details">

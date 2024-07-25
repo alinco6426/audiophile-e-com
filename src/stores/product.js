@@ -11,7 +11,7 @@ products : [
     "image": {
       "mobile": "/assets/product-yx1-earphones/mobile/image-product.jpg",
       "tablet": "/assets/product-yx1-earphones/tablet/image-product.jpg",
-      "desktop": "/assets/product-yx1-earphones/desktop/image-product.jpg"
+      "desktop": "../assets/product-yx1-earphones/desktop/image-product.jpg"
     },
     "category": "earphones",
     "categoryImage": {

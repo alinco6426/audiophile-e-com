@@ -12,8 +12,8 @@
                <img src="../assets/shared/icons/icon-close.svg" alt="icon-close">
              </button>
              <div class="nav-links-container">
-               <router-link class="router-link" to="/">Home</router-link>
-               <router-link class="router-link" to="/headphones">Headphones</router-link>
+               <router-link class="router-link" to="/" exact>Home</router-link>
+               <router-link class="router-link" to="/headphones" exact-active-class="">Headphones</router-link>
                <router-link class="router-link" to="/speakers">Speakers</router-link>
                <router-link class="router-link" to="/earphones">Earphones</router-link>
              </div>
@@ -94,6 +94,16 @@ export default {
      font-weight: 600;
      margin-inline: 25px;
 }
+.nav-links-container .router-link.router-link-active {
+  color: var(--orange);
+  font-weight: bold;
+}
+
+.nav-links-container .router-link.router-link-exact-active {
+  color: var(--orange);
+  font-weight: bold;
+}
+
 .cart-icon-container{
      width: auto;
 }
@@ -163,6 +173,7 @@ export default {
      font-weight: 600;
      margin: 20px 0;
 }
+
 .nav-modal .close-button{
      top: 20px;
      right: 20px;

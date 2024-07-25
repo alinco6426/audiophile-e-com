@@ -3,7 +3,7 @@
      
      <div class="product-card">
           <section class="product-thumbnail-container">
-               <img :src="`${product.categoryImage.desktop}`" alt="product-image">
+               <img :src="productImageUrl" alt="product-image">
           </section>
 
           <section class="product-overview-details">
@@ -49,7 +49,21 @@ export default {
      computed : {
           message(){
                return useCartStore().message
-          }
+          },
+           productImageUrl() {
+    const screenWidth = window.innerWidth;
+    if (screenWidth < 768) {
+      return new URL(`../${this.product.image.mobile}`, import.meta.url);
+    } else if (screenWidth < 1024) {
+      return new URL(`../${this.product.image.tablet}`, import.meta.url);
+    } else {
+      return new URL(`../${this.product.image.desktop}`, import.meta.url);
+    }
+  }
+          //  productImage(image) {
+          //   return new URL(`../${image}`, import.meta.url)
+          // }
+          
      },
      props:{
           product : Object,
@@ -59,6 +73,9 @@ export default {
      Toast
 },
      methods : {
+           productImage(image) {
+      return new URL(`../${image}`, import.meta.url).href;
+    },
           setProductNameAndPrice() {
                const formattedProductName = this.product.name.split(" ");
                this.productCategory = formattedProductName[formattedProductName.length - 1];

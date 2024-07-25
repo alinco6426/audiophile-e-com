@@ -11,7 +11,7 @@
           </div>
           <div v-for="item in cart" :key="item.id" class="carted-item">
                <section>
-                    <img :src="`/src${item.image}`" alt="item-image">
+                    <img :src="cartImageUrl(item.image)" alt="item-image">
                     <div>
                          <h3>{{ item.name }}</h3>
                          <h5>$ {{ item.price.toLocaleString() }}</h5>
@@ -70,12 +70,15 @@ props: {
           closeCart() {
            this.$emit('close-cart');
           },
-     howToast() {
+     showToast() {
       this.toastVisible = true;
       setTimeout(() => {
         this.toastVisible = false;
       }, 3000);
     },
+    cartImageUrl(image) {
+      return new URL(`../${image}`, import.meta.url);
+  }
      }
 }
 </script>

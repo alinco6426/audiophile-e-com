@@ -60,9 +60,6 @@ export default {
       return new URL(`../${this.product.image.desktop}`, import.meta.url);
     }
   }
-          //  productImage(image) {
-          //   return new URL(`../${image}`, import.meta.url)
-          // }
           
      },
      props:{

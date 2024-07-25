@@ -17,9 +17,9 @@
           </section>
 
           <section class="product-gallery">
-               <img :src="`/src${product.gallery.first.desktop}`" alt="gallery-picture">
-               <img :src="`/src${product.gallery.second.desktop}`" alt="gallery-picture">
-               <img :src="`/src${product.gallery.third.desktop}`" alt="gallery-picture">
+               <img :src="galleryImageUrl(product.gallery.first.desktop)" alt="gallery-picture">
+               <img :src="galleryImageUrl(product.gallery.second.desktop)" alt="gallery-picture">
+               <img :src="galleryImageUrl(product.gallery.third.desktop)" alt="gallery-picture">
           </section>
 
           <!-- <section class="other-products-overview">
@@ -47,10 +47,16 @@ export default {
      props : {
           product : Object
      },
+     computed : {
+              
+     },
      methods: {
           splitFeatures(){
                this.productFeatures = this.product.features.split("\n\n");
-          }
+          },
+  galleryImageUrl(image) {
+      return new URL(`../${image}`, import.meta.url);
+  }
      },
      components : {
           ProductCard
